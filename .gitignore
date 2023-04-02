@@ -1,0 +1,4 @@
+**/tmp
+/db-data
+go.work
+go.work.sum

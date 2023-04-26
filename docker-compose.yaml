@@ -89,6 +89,21 @@ services:
       MAIL_PASSWORD: ""
       FROM_NAME: Yamashita
       FROM_ADDRESS: YAMASHITA@yamashita.com
+  
+  listener-service:
+    build: 
+      context: ./listener-service
+      dockerfile: ./listener-service.dev.dockerfile
+    volumes:
+      - ./listener-service:/app
+    working_dir: /app
+    tty: true
+    restart: always
+    #command: air
+    deploy:
+      mode: replicated
+      replicas: 1
+  
 
   postgres:
     image: 'postgres:14.2'
